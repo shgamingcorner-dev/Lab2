@@ -22,7 +22,14 @@ def calc_average(x):
 
 def find_min_max(x):
     list.sort(x)
-    minmaxlist = [x[0], x[-1]]
+    median = len(x) / 2
+    if  median % 2 == 0:
+        high = median + 0.5
+        low = median - 0.5
+        median = (x[int(high)] + x[int(low)]) / 2
+    else:
+        median = x[int(median)]
+    minmaxlist = [x[0], x[-1], median]
     return minmaxlist
 
 
@@ -40,9 +47,9 @@ def main():
     list = get_user_input()
     average = calc_average(list)
     minmax = find_min_max(list)
-    print(list)
-    print(average)
-    print(minmax)
+    print("the list =" + str(list))
+    print("Average =" + str(average))
+    print("Minimum, Maximum, Median" + str(minmax))
 
 if __name__ == "__main__":
     main()
