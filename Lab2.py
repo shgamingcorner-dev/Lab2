@@ -1,53 +1,51 @@
-def calculate_bmi(height,weight):
-    BMI = weight / (height * height)
-    print("Height=" + str(height))
-    print("Weight=" + str(weight))
-    print("BMI=" + str(BMI))
-
-    if BMI <18.5: 
-        print("Underweight")
-    elif BMI >= 18.5 and BMI  <= 25.0:
-        print("Normal Weight")
-    else:
-        print("Overweight")
-
-
 def display_main_menu():
     print("Enter numbers seperated with commas eg. '3, 4, 5.2, 6' ")
 
-
-
 def get_user_input():
-    stats = input()
-    sheets = stats.split(", ")
-    listing = [sheets]
-    return listing
+    stats = input("Enter numbers here: ")
+    sheets = stats.split(",")
+    floatsheets = []
+    for i in sheets:
+        i = float(i)
+        floatsheets.append(i)
+    return floatsheets
 
 
-
-def calc_average(list):
-    noinfo = len(list)
-    for i in range(noinfo):
-        total = total + list[noinfo]
-    
-    average = total / len(list)
+def calc_average(x):
+    nolist = len(x)
+    total = 0
+    for i in x:
+        total += i
+    average = total / nolist
     return average
 
 
-def find_min_max(list)
-    list.sort(key=myFunc)
-    minmaxlist = [list[0], list[-1]]
+def find_min_max(x):
+    list.sort(x)
+    minmaxlist = [x[0], x[-1]]
     return minmaxlist
 
 
-def sort_temperature()
+def sort_temperature():
     print("Sorting the temperature")
 
 
-def calc_median_temperature()
+def calc_median_temperature():
     print("calc the temp")
 
 
+def main():
+    print("ET0735 LAB2")
+    display_main_menu()
+    list = get_user_input()
+    average = calc_average(list)
+    minmax = find_min_max(list)
+    print(list)
+    print(average)
+    print(minmax)
+
+if __name__ == "__main__":
+    main()
 
 
 
