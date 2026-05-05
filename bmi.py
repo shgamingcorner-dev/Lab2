@@ -10,3 +10,27 @@ def calculate_bmi(height,weight):
         print("Normal Weight")
     else:
         print("Overweight")
+
+def calculator(a,b,operation):
+    if operation == '+':
+        answer = a + b
+    elif operation == '-':
+        answer = a - b
+
+    elif operation == '*':
+        answer = a * b
+    elif operation == '/':    
+        answer = a / b
+    else:
+        answer = 'wrong'
+
+    return answer
+
+def Clean_text(text):
+    UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    cleantext = ''
+
+    for i in text:
+        if i.isalnum():
+            cleantext+=i
+    print(cleantext.lower())
