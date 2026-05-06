@@ -1,3 +1,5 @@
+import statistics as stats
+
 def display_main_menu():
     print("Enter numbers seperated with commas eg. '3, 4, 5.2, 6' ")
 
@@ -22,14 +24,7 @@ def calc_average(x):
 
 def find_min_max(x):
     list.sort(x)
-    median = len(x) / 2
-    if  median % 2 == 0:
-        high = median + 0.5
-        low = median - 0.5
-        median = (x[int(high)] + x[int(low)]) / 2
-    else:
-        median = x[int(median)]
-    minmaxlist = [x[0], x[-1], median]
+    minmaxlist = [x[0], x[-1]]
     return minmaxlist
 
 
@@ -37,8 +32,9 @@ def sort_temperature():
     print("Sorting the temperature")
 
 
-def calc_median_temperature():
-    print("calc the temp")
+def calc_median_temperature(x):
+      return stats.median(x)
+
 
 
 def main():
@@ -47,9 +43,11 @@ def main():
     list = get_user_input()
     average = calc_average(list)
     minmax = find_min_max(list)
+    median = calc_median_temperature(list)
     print("the list =" + str(list))
     print("Average =" + str(average))
-    print("Minimum, Maximum, Median" + str(minmax))
+    print("Minimum, Maximum" + str(minmax))
+    print("median =" + str(median))
 
 if __name__ == "__main__":
     main()
